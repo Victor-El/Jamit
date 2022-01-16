@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/subscribeFragment">
+
+    <fragment
+        android:id="@+id/subscribeFragment"
+        android:name="me.codeenzyme.jamit.SubscribeFragment"
+        android:label="SubscribeFragment" >
+        <action
+            android:id="@+id/action_subscribeFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="me.codeenzyme.jamit.PaymentFragment"
+        android:label="Payment Information" >
+        <action
+            android:id="@+id/action_paymentFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="me.codeenzyme.jamit.SuccessFragment"
+        android:label="SuccessFragment" >
+        <argument
+            android:name="trx"
+            app:argType="me.codeenzyme.jamit.models.RaveResponse" />
+        <action
+            android:id="@+id/action_successFragment_to_subscribeFragment"
+            app:destination="@id/subscribeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right"
+            app:popUpTo="@id/subscribeFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
